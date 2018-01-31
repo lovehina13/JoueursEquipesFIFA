@@ -8,6 +8,7 @@
 #===============================================================================
 
 class Joueur(object):
+
     def __init__(self, nom, poste, note):
         self.nom = nom
         self.poste = poste
@@ -78,7 +79,8 @@ if __name__ == "__main__":
     formation = ["G", "DD", "DC", "DC", "DG", "MD", "MC", "MC", "MG", "BU", "BU"]
     equipes = recupererEquipes(joueurs, formation)
     meilleureEquipe = recupererMeilleureEquipe(equipes)
-    for index in range(len(formation)):
-        poste = formation[index]
-        joueur = meilleureEquipe[index]
-        print "%s\t%s (%.3f)" % (poste, joueur.nom, joueur.note)
+    if meilleureEquipe is not None:
+        for index in range(len(formation)):
+            poste = formation[index]
+            joueur = meilleureEquipe[index]
+            print "%s\t%s (%.3f)" % (poste, joueur.nom, joueur.note)
